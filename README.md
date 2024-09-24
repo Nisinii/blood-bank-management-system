@@ -29,4 +29,37 @@ The **Online Blood Bank Management System** is a web-based application that stre
 ### Step 1: Clone the Repository
 Clone the repository from GitHub (or your chosen version control platform):
 ```bash
-git clone https://github.com/your-username/blood-bank-management-system.git
+git clone https://github.com/Nisinii/blood-bank-management-system.git
+```
+
+### Step 2: Install Dependencies
+Once you've cloned the repository, open the solution in Visual Studio and follow these steps:
+
+1. **Open the Package Manager Console** in Visual Studio.
+   - Go to **Tools > NuGet Package Manager > Package Manager Console**.
+
+2. Run the following commands to install the necessary dependencies for **Entity Framework Core** and **SQL Server**:
+   ```bash
+   Install-Package Microsoft.EntityFrameworkCore.SqlServer
+   Install-Package Microsoft.EntityFrameworkCore.Tools
+   ```
+
+### Step 3: Configure the Database
+1. In the `appsettings.json` file, update the connection string to point to your local SQL Server:
+   ```json
+   "ConnectionStrings": {
+       "BloodBankDatabase": "Server=YOUR_SERVER;Database=BloodBankDB;Trusted_Connection=True;"
+   }
+   ```
+  Replace YOUR_SERVER with your SQL Server instance.
+
+2. In the Package Manager Console, run the following commands to create the database and apply migrations:
+```bash
+Add-Migration InitialCreate
+Update-Database
+```
+
+### Step 4: Run the Application
+1. Press F5 or click Run in Visual Studio to start the application.
+2. The application will launch in your default browser at https://localhost:5001 (or a similar port).
+   
