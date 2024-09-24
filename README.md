@@ -38,10 +38,10 @@ Once you've cloned the repository, open the solution in Visual Studio and follow
 1. **Open the Package Manager Console** in Visual Studio.
    - Go to **Tools > NuGet Package Manager > Package Manager Console**.
 
-2. Run the following commands to install the necessary dependencies for **Entity Framework Core** and **SQL Server**:
+2. Run the following commands to install the necessary dependencies for **MySQL-related packages**:
    ```bash
-   Install-Package Microsoft.EntityFrameworkCore.SqlServer
-   Install-Package Microsoft.EntityFrameworkCore.Tools
+   dotnet add package Pomelo.EntityFrameworkCore.MySql
+   dotnet add package MySql.Data
    ```
 
 ### Step 3: Configure the Database
