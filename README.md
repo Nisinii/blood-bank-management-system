@@ -62,4 +62,16 @@ Update-Database
 ### Step 4: Run the Application
 1. Press F5 or click Run in Visual Studio to start the application.
 2. The application will launch in your default browser at https://localhost:5001 (or a similar port).
-   
+
+## Usage
+- User Registration: New users and donors can register through the Sign Up page.
+- Login: Existing users and donors can log in with their credentials.
+- Donor Registration: Donors can provide their blood group and contact details.
+- Blood Posting: Users can post blood donation or requirement details on the platform.
+- Blood Search: Users can search for available blood types or donors based on their requirements.
+
+## Database Structure
+The system uses the following key tables:
+- Donors: Stores information about blood donors (name, blood group, contact, last donation date).
+- BloodDonations: Stores information about blood donations (blood group, date of donation, storage location).
+- BloodRequirements: Stores blood requirement requests posted by users (required blood group, patient name, contact, required date).
