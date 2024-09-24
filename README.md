@@ -38,10 +38,10 @@ Once you've cloned the repository, open the solution in Visual Studio and follow
 1. **Open the Package Manager Console** in Visual Studio.
    - Go to **Tools > NuGet Package Manager > Package Manager Console**.
 
-2. Run the following commands to install the necessary dependencies for **Entity Framework Core** and **SQL Server**:
+2. Run the following commands to install the necessary dependencies for **MySQL-related packages**:
    ```bash
-   Install-Package Microsoft.EntityFrameworkCore.SqlServer
-   Install-Package Microsoft.EntityFrameworkCore.Tools
+   dotnet add package Pomelo.EntityFrameworkCore.MySql
+   dotnet add package MySql.Data
    ```
 
 ### Step 3: Configure the Database
@@ -53,13 +53,29 @@ Once you've cloned the repository, open the solution in Visual Studio and follow
    ```
   Replace YOUR_SERVER with your SQL Server instance.
 
-2. In the Package Manager Console, run the following commands to create the database and apply migrations:
+2. In VS Code terminal, run the following commands to create the database and apply migrations:
 ```bash
-Add-Migration InitialCreate
-Update-Database
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 ```
 
-### Step 4: Run the Application
+### Step 4: Install packages related to **ASP.NET Core Scaffolding Tool**
+Run the following commands in terminal where your root package is"
+   ```bash
+   dotnet tool install -g dotnet-aspnet-codegenerator
+   dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+   dotnet restore
+   ```
+
+### Step 5: Create Controllers for CRUD Operations
+Run the following commands in terminal where your root package is"
+   ```bash
+   dotnet aspnet-codegenerator controller -name DonorsController -m Donor -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   dotnet aspnet-codegenerator controller -name BloodDonationsController -m BloodDonation -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   dotnet aspnet-codegenerator controller -name BloodRequirementsController -m BloodRequirement -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   ```
+
+### Step 6: Run the Application
 1. Press F5 or click Run in Visual Studio to start the application.
 2. The application will launch in your default browser at https://localhost:5001 (or a similar port).
 
