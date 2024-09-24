@@ -53,10 +53,10 @@ Once you've cloned the repository, open the solution in Visual Studio and follow
    ```
   Replace YOUR_SERVER with your SQL Server instance.
 
-2. In the Package Manager Console, run the following commands to create the database and apply migrations:
+2. In VS Code terminal, run the following commands to create the database and apply migrations:
 ```bash
-Add-Migration InitialCreate
-Update-Database
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 ```
 
 ### Step 4: Run the Application
