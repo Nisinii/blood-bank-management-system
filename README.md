@@ -59,7 +59,23 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-### Step 4: Run the Application
+### Step 4: Install packages related to **ASP.NET Core Scaffolding Tool**
+Run the following commands in terminal where your root package is"
+   ```bash
+   dotnet tool install -g dotnet-aspnet-codegenerator
+   dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+   dotnet restore
+   ```
+
+### Step 5: Create Controllers for CRUD Operations
+Run the following commands in terminal where your root package is"
+   ```bash
+   dotnet aspnet-codegenerator controller -name DonorsController -m Donor -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   dotnet aspnet-codegenerator controller -name BloodDonationsController -m BloodDonation -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   dotnet aspnet-codegenerator controller -name BloodRequirementsController -m BloodRequirement -dc BloodBankContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+   ```
+
+### Step 6: Run the Application
 1. Press F5 or click Run in Visual Studio to start the application.
 2. The application will launch in your default browser at https://localhost:5001 (or a similar port).
 
