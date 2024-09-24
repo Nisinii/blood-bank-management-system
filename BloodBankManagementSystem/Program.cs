@@ -1,6 +1,13 @@
+using Microsoft.EntityFrameworkCore; 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Add DbContext for MySQL
+builder.Services.AddDbContext<BloodBankContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("BloodBankDatabase"),
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("BloodBankDatabase"))));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

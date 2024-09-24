@@ -1,0 +1,43 @@
+@model BloodDonation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>BloodDonation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BloodGroup" class="control-label"></label>
+                <input asp-for="BloodGroup" class="form-control" />
+                <span asp-validation-for="BloodGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfDonation" class="control-label"></label>
+                <input asp-for="DateOfDonation" class="form-control" />
+                <span asp-validation-for="DateOfDonation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StorageLocation" class="control-label"></label>
+                <input asp-for="StorageLocation" class="form-control" />
+                <span asp-validation-for="StorageLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
